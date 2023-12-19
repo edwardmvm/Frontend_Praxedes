@@ -1,0 +1,26 @@
+{
+  "/api-rickandmorty": {
+    "target": "https://rickandmortyapi.com/api/",
+    "secure": false,
+    "pathRewrite": {
+      "^/api-rickandmorty": ""
+    },
+    "changeOrigin": true
+  },
+  "/api-security": {
+    "target": "https://pruebas.midasoft.co:5443/Apis_DLLO/Security/",
+    "secure": false,
+    "pathRewrite": {
+      "^/api-security": ""
+    },
+    "changeOrigin": true
+  },
+  "/api-seleccion": {
+    "target": "https://pruebas.midasoft.co:5443/Apis_DLLO/Seleccion/",
+    "secure": false,
+    "pathRewrite": {
+      "^/api-seleccion": ""
+    },
+    "changeOrigin": true
+  }
+}
