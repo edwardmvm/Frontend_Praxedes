@@ -1,0 +1,91 @@
+<mat-toolbar color="primary">
+  <span>Aplicación Angular Material</span>
+  <span class="toolbar-spacer"></span>
+  <button mat-button (click)="logout()">Cerrar Sesión</button>
+</mat-toolbar>
+
+<div class="container">
+  <!-- Registro -->
+  <form>
+    <mat-card>
+      <mat-card-title>Regístrese</mat-card-title>
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Nombre" [(ngModel)]="nombre" name="nombre">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Apellido</mat-label>
+        <input matInput placeholder="Apellido" [(ngModel)]="apellido" name="apellido">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Documento de Identidad</mat-label>
+        <input matInput placeholder="Documento de Identidad" [(ngModel)]="doctoIdent" name="doctoIdent">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" [(ngModel)]="email" name="email">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Clave</mat-label>
+        <input matInput type="password" placeholder="Clave" [(ngModel)]="clave" name="clave">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Cia</mat-label>
+        <input matInput placeholder="Cia" value="10" name="cia" disabled>
+      </mat-form-field>
+      <button mat-raised-button color="accent" (click)="registrar()">Registrar</button>
+    </mat-card>
+  </form>
+
+  <!-- Autenticación -->
+  <mat-card>
+    <mat-card-title>Autenticación</mat-card-title>
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Username" [(ngModel)]="username" name="username">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Company ID</mat-label>
+      <input matInput placeholder="Company ID" value="10" name="companyId" disabled>
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="autenticar()">Autenticar</button>
+  </mat-card>
+
+  <!-- Listar Episodios con Paginación -->
+  <mat-card>
+    <mat-card-title>Episodios de Rick & Morty</mat-card-title>
+    <mat-list>
+      <mat-list-item *ngFor="let episodio of episodios">{{ episodio.episode }}</mat-list-item>
+    </mat-list>
+    <mat-paginator [pageSize]="5"></mat-paginator> <!-- Ajusta pageSize según sea necesario -->
+  </mat-card>
+
+  <!-- Personajes por Episodio -->
+  <mat-card>
+    <mat-card-title>Personajes por Episodio</mat-card-title>
+    <div class="episodios-container">
+      <ng-container *ngFor="let episodio of personajesPorEpisodio | keyvalue">
+        <div class="episodio">
+          <h3>{{ episodio.key }}</h3>
+          <div class="personajes">
+            <mat-card *ngFor="let personaje of episodio.value" class="personaje-card">
+              <mat-card-header>
+                <mat-card-title>ID Caracter: {{ personaje.id_caracter }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>Observaciones: {{ personaje.observaciones }}</p>
+                <p>Usuario: {{ personaje.usuario }}</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <mat-paginator [pageSize]="5"></mat-paginator> <!-- Ajusta pageSize según sea necesario -->
+  </mat-card>
+
+</div>

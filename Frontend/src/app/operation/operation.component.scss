@@ -1,0 +1,60 @@
+.container {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+mat-card {
+  margin-bottom: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+button[mat-raised-button] {
+  margin-top: 15px;
+}
+
+mat-paginator {
+  background: transparent;
+}
+
+.episodios-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.episodio {
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.personajes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.personaje-card {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
